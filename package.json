@@ -1,0 +1,16 @@
+{
+  "name": "scopemint-ai",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Explainable AI milestone agreements with human-approved PayPal Sandbox payments",
+  "main": "local-server.js",
+  "scripts": {
+    "start": "node local-server.js",
+    "test": "node --test",
+    "check": "node --check app.js && node --check local-server.js && node --check api/analyze.js && node --check api/create-order.js && node --check api/capture-order.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
