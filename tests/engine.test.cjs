@@ -1,0 +1,11 @@
+'use strict';
+const test=require('node:test');const assert=require('node:assert/strict');
+const {classify,detectMoney,analyzeBrief}=require('../lib/ai-engine.cjs');
+test('classifies software work',()=>{const p=classify('Build a responsive web app with React interface and checkout navigation');assert.equal(p.category,'web');assert.ok(p.confidence>20)});
+test('classifies education',()=>{const p=classify('Produce a phonics learning course with eight lessons and teacher worksheets');assert.equal(p.category,'education')});
+test('parses budget accurately',()=>{assert.equal(detectMoney('Our budget is $2,450'),2450);assert.equal(detectMoney('Total USD 199.50'),199.5)});
+test('milestones sum exactly including cents',()=>{const p=analyzeBrief({brief:'Redesign a modern website with 4 pages, two reviews and delivery in 3 weeks',budget:1234.57});assert.equal(Number(p.milestones.reduce((a,m)=>a+m.amount,0).toFixed(2)),1234.57);assert.equal(p.milestones.length,3)});
+test('risk flags clarify incomplete agreements',()=>{const p=analyzeBrief({brief:'Build whatever pages are needed and provide unlimited revisions',budget:100});assert.ok(p.risks.some(r=>r.severity==='high'));assert.ok(p.score<70)});
+test('rejects short or excessively long text',()=>{assert.throws(()=>analyzeBrief({brief:'hi'}));assert.throws(()=>analyzeBrief({brief:'x'.repeat(3001)}))});
+test('rejects nonnumeric and oversized payment amounts',()=>{const {amountUSD}=require('../api/_paypal.cjs');for(const v of [-1,'ab',10001,1.234])assert.throws(()=>amountUSD(v));assert.equal(amountUSD(120.5),'120.50')});
+test('sandbox API never activates without server credentials',()=>{const {configured}=require('../api/_paypal.cjs');const old=process.env.PAYPAL_CLIENT_ID;delete process.env.PAYPAL_CLIENT_ID;assert.equal(configured(),false);if(old)process.env.PAYPAL_CLIENT_ID=old});
