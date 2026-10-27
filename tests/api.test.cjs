@@ -1,0 +1,8 @@
+'use strict';
+const test=require('node:test');const assert=require('node:assert/strict');
+const analyze=require('../api/analyze.js');const status=require('../api/status.js');const create=require('../api/create-order.js');
+function response(){return {statusCode:200,headers:{},setHeader(k,v){this.headers[k]=v},end(d){this.payload=JSON.parse(d)}}}
+test('API: produces an ML agreement with project milestones',async()=>{const res=response();await analyze({method:'POST',body:{brief:'Build a responsive app with five screens and delivery in 4 weeks, including 2 revisions.',budget:480,title:'Test project'}},res);assert.equal(res.statusCode,200);assert.equal(res.payload.title,'Test project');assert.equal(res.payload.milestones.length,3)});
+test('API: rejects a short brief with safe JSON errors',async()=>{const res=response();await analyze({method:'POST',body:{brief:'hi'}},res);assert.equal(res.statusCode,400);assert.equal(res.payload.error,'INVALID_BRIEF')});
+test('API: reports status with no credential values',async()=>{const res=response();await status({method:'GET'},res);assert.equal(res.statusCode,200);assert.equal(res.payload.environment,'sandbox-only');assert.equal(JSON.stringify(res.payload).includes('CLIENT_SECRET'),false)});
+test('API: missing keys return a clear 503, never fake an order',async()=>{const old=process.env.PAYPAL_CLIENT_ID;delete process.env.PAYPAL_CLIENT_ID;const res=response();await create({method:'POST',body:{amount:150,title:'Review'}},res);assert.equal(res.statusCode,503);assert.equal(res.payload.error,'SANDBOX_NOT_CONFIGURED');if(old)process.env.PAYPAL_CLIENT_ID=old});
