@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ScopeMint AI turns messy freelance briefs into clear, reviewable milestones and human-approved PayPal sandbox payments." />
+  <meta name="theme-color" content="#0d1b18" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>ScopeMint AI — Clarity before checkout</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand" aria-label="ScopeMint AI"><span class="brand-symbol"><span></span><span></span><span></span></span><span>scope<span class="brand-light">mint</span><small>AI WORKSPACE</small></span></div>
+      <div class="nav-section-label">WORKSPACE</div>
+      <nav class="sidebar-nav" aria-label="App sections">
+        <button class="nav-item active" data-view="workspace" aria-current="page"><span class="nav-ico">◩</span>Workbench <span class="nav-arrow">↗</span></button>
+        <button class="nav-item" data-view="activity"><span class="nav-ico">▤</span>Payment activity <span id="activity-count" class="nav-count">0</span></button>
+        <button class="nav-item" data-view="how"><span class="nav-ico">◎</span>How it works</button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-help"><span class="glow-dot"></span><span>Prototype environment<strong>Sandbox only</strong><small>No real money is moved.</small></span></div>
+      <div class="sidebar-footer"><span class="user-avatar">ST</span><span class="user-info"><strong>Demo workspace</strong><small>Independent project</small></span><span class="user-ellipsis">···</span></div>
+    </aside>
+    <div class="main-wrapper">
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb-view">Workbench</strong></div><div class="topbar-right"><span class="status-indicator"><span class="status-pulse"></span><span id="sandbox-label">Checking sandbox</span></span><button id="reader-button" class="icon-button" title="Toggle accessible reading mode" aria-pressed="false" aria-label="Toggle larger, easier-to-read text">Aa</button><a class="topbar-link" href="https://developer.paypal.com/" target="_blank" rel="noopener noreferrer">Developer docs ↗</a></div></header>
+      <main id="main" tabindex="-1">
+        <section id="view-workspace" class="app-view">
+          <div class="content-wrap">
+            <div class="welcome-row"><div><div class="overline"><span class="tiny-diamond">✦</span> INTRODUCING SCOPEMINT AI <span class="overline-line"></span></div><h1>Good agreements.<br/><em>Better payments.</em></h1><p class="headline-description">Turn a messy project brief into a clear, AI-assisted milestone agreement, then let your client approve each PayPal sandbox payment with confidence.</p><div class="hero-pills"><span>✧ Human-approved payments</span><span>◈ Built-in machine learning</span><span>♢ Clearer scope</span></div></div>
+              <div class="hero-art" aria-hidden="true"><div class="hero-circle one"></div><div class="hero-circle two"></div><div class="hero-card"><div class="hc-top"><span class="hc-logo">S<span>M</span></span><span>AGREEMENT <b>↗</b></span></div><span class="hc-caption">A clearer way to get paid</span><strong>$1,200<span>.00</span></strong><div class="hc-meter"><span></span><span></span><span></span></div><div class="hc-foot"><span>Built on trust</span><span>✦ 3 milestones</span></div></div><div class="floating-badge">✦ &nbsp; AI ready</div></div></div>
+            <div class="section-heading"><div><span class="eyebrow">THE WORKSPACE</span><h2>From brief to paid, in one flow.</h2></div><span class="step-count">01 <span>/</span> 03</span></div>
+            <div class="steps-bar" aria-label="Process steps"><div class="step active"><span class="step-number">01</span><div><strong>Describe the work</strong><small>Any messy brief will do</small></div></div><span class="step-connector"></span><div class="step"><span class="step-number">02</span><div><strong>Review with AI</strong><small>Clarity, risk & milestones</small></div></div><span class="step-connector"></span><div class="step"><span class="step-number">03</span><div><strong>Pay with PayPal</strong><small>Explicit approval required</small></div></div></div>
+            <div class="work-grid">
+              <section class="editor-card" aria-labelledby="brief-heading"><div class="card-title-row"><div><span class="card-kicker">01 — START HERE</span><h3 id="brief-heading">Project brief</h3><p>Write naturally. The model identifies the project type and what needs clarifying.</p></div><span class="card-icon">✎</span></div>
+                <label for="project-title" class="field-label">PROJECT NAME</label><input id="project-title" class="text-field" maxlength="120" value="Luma Coffee — Website Redesign" placeholder="Give this project a name" />
+                <div class="field-label-row"><label for="project-brief" class="field-label">DESCRIBE THE PROJECT</label><span id="char-counter">0 / 3,000</span></div>
+                <textarea id="project-brief" class="brief-textarea" maxlength="3000" placeholder="Example: I need a new site for my coffee business, including responsive pages, a contact form, and basic SEO...">Redesign our coffee shop website with 5 responsive pages, a menu page, online booking form, and basic SEO. Include a mobile-friendly navigation, two revision rounds and handoff assets. Target delivery is in 3 weeks. Our total budget is $1,200.</textarea>
+                <div class="suggestion-title">TRY A SAMPLE BRIEF <span>↘</span></div><div class="sample-row"><button type="button" class="sample-chip" data-sample="web">◫ Website redesign</button><button type="button" class="sample-chip" data-sample="brand">✳ Brand identity</button><button type="button" class="sample-chip" data-sample="education">◇ Learning course</button></div>
+                <div class="editor-actions"><div class="budget-input-wrap"><label for="budget">TOTAL BUDGET · USD</label><div class="money-field"><span>$</span><input type="number" id="budget" min="1" max="100000" step="0.01" value="1200" /></div></div><button type="button" class="primary-button" id="analyze-button"><span id="analyze-label">✦ &nbsp; Analyze with AI</span><span class="button-right">↗</span></button></div><div class="privacy-note">♢ &nbsp; No charges are made during analysis. No client data is stored on the server.</div>
+              </section>
+              <section class="insight-card" aria-labelledby="insight-heading"><div class="card-title-row"><div><span class="card-kicker">02 — CLARITY ENGINE</span><h3 id="insight-heading">AI insights <span class="small-sparkle">✦</span></h3><p>Understand the agreement before anyone pays.</p></div><span class="model-badge" id="model-badge">BUILT-IN ML</span></div>
+                <div id="insights-empty" class="insights-loading"><div class="loading-orbit">✳</div><strong>Make the scope make sense.</strong><span>Analyze your project brief to reveal milestones, clarity signals and potential misunderstandings.</span></div>
+                <div id="insights-content" hidden><div class="score-area"><div class="score-ring" id="score-ring" style="--score:75"><div><strong id="clarity-score">75</strong><small>/ 100</small></div></div><div class="score-copy"><span class="score-small">AGREEMENT CLARITY</span><h4 id="clarity-heading">Looking good.</h4><p id="clarity-message">A few thoughtful changes can make the scope easier to agree on.</p></div></div>
+                <div class="insights-divider"></div><div class="classification"><div><span class="metric-name">AI-DERIVED PROJECT TYPE</span><strong id="category-name">Product & web</strong></div><div class="confidence"><strong id="confidence-score">98%</strong><small>model confidence</small></div></div>
+                <div class="insights-divider"></div><div class="risk-title"><strong>Clarity checks</strong><span id="risk-count">0 notes</span></div><div id="risk-list" class="risk-list"></div><div class="engine-note"><span>✧</span><span id="engine-description">Your brief is analyzed with a real lightweight machine-learning classifier.</span></div></div>
+              </section>
+            </div>
+            <section class="agreement-card" aria-labelledby="agreement-heading"><div class="agreement-head"><div><span class="card-kicker">03 — READY TO REVIEW</span><h3 id="agreement-heading">Your payment agreement</h3><p>A transparent plan you can edit, share, and pay milestone by milestone.</p></div><div class="agreement-head-right"><span class="draft-pill">● DRAFT · REVIEW REQUIRED</span><button class="small-button" id="copy-button">↗ Share agreement</button></div></div>
+              <div id="agreement-placeholder" class="agreement-placeholder"><div class="placeholder-art">◫</div><strong>Every great collaboration starts with clarity.</strong><p>Click “Analyze with AI” to turn your brief into a reviewable agreement.</p></div>
+              <div id="agreement-content" hidden><div class="agreement-summary"><div><span class="metric-name">PROJECT OVERVIEW</span><h4 id="agreement-title">Luma Coffee — Website Redesign</h4><p id="agreement-summary">An agreement with clearly defined deliverables.</p></div><div class="total-price"><small>PROJECT ESTIMATE</small><strong id="agreement-total">$1,200.00</strong><span>USD · Fixed estimate</span></div></div>
+                <div class="milestone-table"><div class="table-heading"><span>MILESTONE & DELIVERABLES</span><span>PAYMENT</span></div><div id="milestone-list"></div></div>
+                <div class="agreement-bottom"><div><span class="security-icon">♢</span><span><strong>Control stays with the client.</strong><small>Each sandbox payment is individually reviewed and approved. This is not escrow or automatic billing.</small></span></div><button type="button" id="download-button" class="outline-button">↓ &nbsp; Export JSON</button></div>
+              </div>
+            </section>
+            <div class="footer-row"><span>Designed for better agreements, not automated financial decisions.</span><span>ScopeMint AI · PayPal sandbox demo · 2026</span></div>
+          </div>
+        </section>
+        <section id="view-activity" class="app-view" hidden><div class="content-wrap secondary-view"><span class="eyebrow">PAYMENT HISTORY</span><h1>Every step,<br/><em>accounted for.</em></h1><p class="headline-description">A local history of sandbox payments and explicitly marked simulations from this browser. No production transactions.</p><div class="activity-panel"><div class="activity-panel-top"><h3>Recent events</h3><span id="activity-total">0 records</span></div><div id="activity-list" class="activity-list"></div></div></div></section>
+        <section id="view-how" class="app-view" hidden><div class="content-wrap secondary-view"><span class="eyebrow">THE IDEA</span><h1>AI suggests.<br/><em>People decide.</em></h1><p class="headline-description">ScopeMint reduces ambiguity in service payments. The model never sends money and never edits the price without human review.</p><div class="how-grid"><div class="how-card"><span>01 / MACHINE LEARNING</span><strong>Understand intent.</strong><p>A trained Multinomial Naive Bayes model categorizes project briefs and powers milestone planning. An optional OpenAI integration enriches explanations.</p></div><div class="how-card"><span>02 / TRUST BY DESIGN</span><strong>Show the gaps.</strong><p>Clarity checks highlight undefined revisions, vague scope, deadlines, and open-ended commitments. Proposals stay editable before approval.</p></div><div class="how-card"><span>03 / PAYPAL SANDBOX</span><strong>Approve, then pay.</strong><p>PayPal Orders API v2 handles order creation, payer approval, and capture. Merchant credentials stay on the server. Demo simulation is distinctly labeled.</p></div></div><div class="ethical-note"><strong>No escrow. No autonomous transfers. No real charges.</strong><p>Milestones are agreement artifacts, not locked funds. Payments are only available in PayPal's free sandbox when configured. Do not use this prototype for real financial obligations.</p></div></div></section>
+      </main>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <div id="pay-modal" class="modal-backdrop" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" id="close-modal" aria-label="Close dialog">×</button><span class="modal-kicker">CHECKOUT REVIEW</span><h2 id="modal-title">Approve your milestone</h2><p>Review exactly what you're agreeing to. ScopeMint never initiates a payment without this action.</p><div class="modal-amount"><span id="modal-milestone">Discovery, structure & scope</span><strong id="modal-price">$360.00</strong><small>USD · one-time milestone</small></div><div class="modal-info"><span>◈</span><span id="modal-description">This is a sandbox demonstration. No live money is involved.</span></div><div class="modal-actions"><button class="outline-button" id="cancel-payment">Not now</button><button class="primary-button" id="confirm-payment">Continue to PayPal Sandbox ↗</button></div><button class="demo-payment-link" id="simulate-payment">Or try an explicitly simulated checkout (no PayPal transaction)</button></div></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
